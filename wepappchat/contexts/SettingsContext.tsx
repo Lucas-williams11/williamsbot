@@ -8,17 +8,12 @@ interface SettingsContextType {
 const SettingsContext = createContext<SettingsContextType | undefined>(undefined);
 
 export const SettingsProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
-
+  // Lee las keys exclusivamente desde Netlify
   const youtubeApiKey = import.meta.env.VITE_YOUTUBE_API_KEY || "";
   const geminiApiKey = import.meta.env.VITE_GEMINI_API_KEY || "";
 
   return (
-    <SettingsContext.Provider
-      value={{
-        youtubeApiKey,
-        geminiApiKey,
-      }}
-    >
+    <SettingsContext.Provider value={{ youtubeApiKey, geminiApiKey }}>
       {children}
     </SettingsContext.Provider>
   );
