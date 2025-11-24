@@ -3,11 +3,11 @@ import { GoogleGenAI, Type, Chat } from "@google/genai";
 import { VideoIdea, ChannelAnalysis, ChatMessage, YouTubeChannel, YouTubeVideoDetails, OneMillionAnalysis, VideoProposal, StoryboardScene } from '../types';
 import { Language } from "../lib/translations";
 
-if (!process.env.API_KEY) {
+if (!import.meta.env.VITE_GEMINI_API_KEY) {
     throw new Error("API_KEY environment variable not set");
 }
 
-const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
+const ai = new GoogleGenAI({ apiKey: import.meta.env.VITE_GEMINI_API_KEY });
 
 const videoIdeaSchema = {
   type: Type.ARRAY,
