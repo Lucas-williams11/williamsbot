@@ -30,7 +30,7 @@ const VideoCard: React.FC<{ video: YouTubeVideoDetails, label: string }> = ({ vi
             <div className="text-center sm:text-left">
                 <h4 className="font-bold text-white">{video.title}</h4>
                 <p className="text-sm text-slate-400">{video.channelTitle}</p>
-                <p className="text-sm text-slate-400 mt-1"><strong className="text-white">{parseInt(video.stats.viewCount || '0').toLocaleString()}</strong> {t('oneMillion.views')} &middot; <strong className="text-white">{parseInt(video.stats.likeCount || '0').toLocaleString()}</strong> {t('oneMillion.likes')}</p>
+                <p className="text-sm text-slate-400 mt-1"><strong className="text-white">{(video?.stats?.viewCount ? Number(video.stats.viewCount).toLocaleString() : '0').toLocaleString()}</strong> {t('oneMillion.views')} &middot; <strong className="text-white">{(video?.stats?.likeCount ? Number(video.stats.likeCount).toLocaleString() : '0').toLocaleString()}</strong> {t('oneMillion.likes')}</p>
             </div>
         </div>
     );
